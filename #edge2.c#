@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "template2.h"
+
+int main(int argc, char *argv[])
+{
+  FILE *fp1, *fp2;
+  if(argc < 2){
+    printf("%s input-file [output-file]\n", argv[0]);
+    exit(-1);
+  }
+  fp1 = fopen(argv[1], "r");
+  fp2 = fopen(argv[2], "w");
+  Image picture =  ap_read_PGM(fp1);
+  edge(picture);
+  i_write(fp2, picture);
+  return 0;
+}
