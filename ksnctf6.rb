@@ -2,7 +2,7 @@ require 'uri'
 require 'net/http'
 
 module Login
-	@@uri  = URI.parse 'http://ctfq.sweetduet.info:10080/~q6/'
+	@@uri  = URI.parse 'https://dsmpt.info/alffate/index.php'
 
 	def self.get_password_size
 		n_min = 1

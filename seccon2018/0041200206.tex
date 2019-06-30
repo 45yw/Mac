@@ -1,0 +1,69 @@
+% 年度 2002
+% 出題 0041 岐阜大学
+% 検索キーワード  確率 反復試行
+% 科目 数Ⅰ
+
+\documentclass[fleqn]{jarticle}
+\usepackage{emathPxy}
+\usepackage{emathPa}
+\usepackage[continue]{emathAe}
+
+\begin{document}
+コインを8回投げるゲームをする。最初の持ち点を4点とする。
+コインを1回投げるごとに，表が出たら持ち点に1点を加え，裏が出たら1点を引く。
+以下の問に答えよ。
+\begin{enumerate}[(1)]
+  \item ゲーム終了時に，持ち点が0点である確率を求めよ。
+  \item ゲーム終了時に，初めて持ち点が0点となる確率を求めよ。
+  \item このゲームで，1度でも持ち点が0点となる確率を求めよ。
+\end{enumerate}
+\begin{Kaitou}
+\begin{enumerate}[(1)]
+  \item ゲーム終了時に，持ち点が0点であるのは，8回の試行で表が2回，裏が6回出る
+    場合であるから，求める確率は反復試行の定理により
+    \[ \kumiawase82\left(\bunsuu12\right)^8=\bm{\bunsuu{7}{64}} \]
+  \item このゲームで，試行回数と持ち点の推移を図示すると
+    \begin{center}
+    \begin{zahyou}[ul=6mm,yokozikukigou=回数,yokozikuhaiti={[e]},xscale=1.5,
+      tatezikukigou=持ち点](-1,9)(-3,7)
+      \zahyouMemori[g]
+      \begin{azahyou}[(0,4)]{(1,-1)}{(1,1)}
+        \azkousi{6}{2}
+      \end{azahyou}
+    \end{zahyou}
+    \end{center}
+    ゲーム終了時に，初めて持ち点が0点となる経路は，
+    ゲーム終了時に持ち点が0点となる経路$\kumiawase82=28$通りから
+    \begin{enumerate}[(\protect\expandafter\emroman i)]
+      \item 4回目に初めて持ち点が0点となる経路
+      \item 6回目に初めて持ち点が0点となる経路
+    \end{enumerate}
+    を引けばよい。
+    \begin{enumerate}[(\protect\expandafter\emroman i)]
+      \item 4回目に初めて持ち点が0点となる経路は
+        \[ \kumiawase42=6（通り）\]
+      \item 6回目に初めて持ち点が0点となる経路は，図の点(4,2), (6,0)を
+        通過するものであるから
+        \[ \kumiawase41\times\kumiawase21=8（通り）\]
+    \end{enumerate}
+    従って求める確率は
+    \[ \{28-(6+8)\}\times\left(\bunsuu12\right)^8=\bm{\bunsuu{7}{128}} \]
+  \item 次の3つの場合に分けて考える。
+    \begin{enumerate}[(\protect\expandafter\emroman i)]
+      \item 4回目に初めて持ち点が0点となる
+      \item 6回目に初めて持ち点が0点となる
+      \item 8回目に初めて持ち点が0点となる
+    \end{enumerate}
+    \begin{enumerate}[(\protect\expandafter\emroman i)]
+      \item 1～4回目の経路は1通りしかないので，確率は
+        \[ p_4=\left(\bunsuu12\right)^4=\bunsuu{1}{16} \]
+      \item 点(4,2)を経由して(6,0)に至る経路をたどる確率で
+        \[ p_6=\kumiawase41\times\left(\bunsuu12\right)^6=\bunsuu{1}{16} \]
+      \item (2)で求めたように
+        \[ p_8=\bunsuu{7}{128} \]
+    \end{enumerate}
+    以上から求める確率は
+    \[ p_4+p_6+p_8=\bm{\bunsuu{23}{128}} \]
+\end{enumerate}
+\end{Kaitou}
+\end{document}
